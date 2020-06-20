@@ -35,7 +35,7 @@
                             <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3>{{\App\Models\Section::listeningSection()->groups()->count()}}</h3>
-                                    <p>Reading Section Groups</p>
+                                    <p>Listening Section Groups</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-headphones"></i>
@@ -47,7 +47,7 @@
                             <div class="small-box bg-danger">
                                 <div class="inner">
                                     <h3>{{\App\Models\Section::lsSection()->groups()->count()}}</h3>
-                                    <p>Reading Section Groups</p>
+                                    <p>Language System Section Groups</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-edit"></i>
