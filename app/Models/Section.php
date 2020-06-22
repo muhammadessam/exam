@@ -11,15 +11,18 @@ class Section extends Model
         return $this->hasMany(Group::class, 'section_id', 'id');
     }
 
-    public static function readingSection()
+    public static function Reading()
     {
         return Section::where('name', 'Reading')->first();
     }
 
-    public static function listeningSection(){
+    public static function Listening()
+    {
         return Section::where('name', 'Listening')->first();
     }
-    public static function lsSection(){
+
+    public static function LS()
+    {
         return Section::where('name', 'Language System')->first();
     }
 }

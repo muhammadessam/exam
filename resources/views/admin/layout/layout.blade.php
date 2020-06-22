@@ -35,6 +35,7 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+@routes
 <!-- ./wrapper -->
 @include('admin.layout.footer')
 @yield('javascript')

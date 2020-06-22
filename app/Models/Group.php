@@ -8,6 +8,8 @@ class Group extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['questions', 'audio', 'description'];
+
     public function section()
     {
         return $this->belongsTo(Section::class, 'section_id', 'id');

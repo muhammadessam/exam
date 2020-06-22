@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            @if($group->section->name == 'Reading')
+            @if($group->section->is(\App\Models\Section::Reading()))
                 <div class="col" id="descriptionDiv">
                     <div class="card card-default mt-3" id="readingdescription">
                         <div class="card-header">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($group->section->name == 'Listening')
+            @elseif($group->section->is(\App\Models\Section::Listening()))
                 <div class="col no-print">
                     <div class="card card-default mt-3">
                         <div class="card-header">
@@ -146,6 +146,7 @@
                     <table id="sectionGroups" class="table-striped table">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>Question</th>
                             <th>Answer 1</th>
                             <th>Answer 2</th>
@@ -155,8 +156,9 @@
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        @foreach($group->questions  as $item)
+                        @foreach($group->questions  as $index => $item)
                             <tr>
+                                <td>{{$index + 1}}</td>
                                 <td>{{$item->question}}</td>
                                 <td>{{$item->a1}}</td>
                                 <td>{{$item->a2}}</td>
@@ -182,8 +184,4 @@
 @endsection
 @section('javascript')
     <x-datatable id="sectionGroups" printHead="{{$group->section->name}} - {{$group->name}} - Questions"></x-datatable>
-    <script>
-        let description = $('#readingdescription');
-
-    </script>
 @endsection

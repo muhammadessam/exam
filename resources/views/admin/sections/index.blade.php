@@ -27,13 +27,17 @@
                         <table id="sectionGroups" class="table-striped table">
                             <thead>
                             <tr>
+                                <th>#</th>
                                 <th>Name</th>
+                                <th>Question number</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
-                            @foreach($section->groups  as $item)
+                            @foreach($section->groups  as $index=> $item)
                                 <tr>
+                                    <td>{{$index + 1}}</td>
                                     <td>{{$item->name}}</td>
+                                    <td><div class="badge badge-success">{{$item->questions->count()}}</div></td>
                                     <td class="d-flex">
                                         <a class="btn btn-info" href="{{route('admin.groups.show', $item)}}"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-primary d-inline ml-2" href="{{route('admin.groups.edit', $item)}}"><i class="fa fa-edit"></i></a>

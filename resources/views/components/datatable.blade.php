@@ -12,7 +12,7 @@
             {
                 extend: 'print',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
+                    columns: [1, 2, 3, 4,5]
                 },
                 customize: function (win) {
                     $(win.document.head).find('title').text('{{$printHead}}');

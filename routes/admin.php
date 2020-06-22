@@ -42,6 +42,14 @@ Route::prefix('admin')->group(function () {
             Route::prefix('audio')->group(function () {
                 Route::resource('audio', 'AudioController');
             });
+            Route::prefix('test')->group(function () {
+                Route::get('test', 'TestController@index')->name('test.index');
+            });
+
+
+            Route::get('testData', 'TestController@generate')->name('test.generate');
+
+
         });
 
 
