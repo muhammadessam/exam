@@ -24,7 +24,7 @@
     <!-- /.content-wrapper -->
 
 
-    <footer class="main-footer">
+    <footer class="main-footer no-print">
         <strong>Copyright &copy; 2014-202 <a href="http://defaultpath.com/">DefaultPath</a>.</strong>
         All rights reserved.
     </footer>

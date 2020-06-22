@@ -45,7 +45,9 @@ Route::prefix('admin')->group(function () {
             Route::prefix('test')->group(function () {
                 Route::get('test', 'TestController@index')->name('test.index');
             });
-
+            Route::prefix('settings')->group(function () {
+                Route::resource('settings', 'SettingController');
+            });
 
             Route::get('testData', 'TestController@generate')->name('test.generate');
 
