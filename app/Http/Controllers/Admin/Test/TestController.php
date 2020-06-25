@@ -39,8 +39,8 @@ class TestController extends Controller
                 return $value->audio()->exists();
             })->random();
             $ls = Section::LS()->groups->random();
-            $audio = asset($listening->audio->path);
-            $logo = asset(Setting::MainSettings()->logo);
+            $audio = url($listening->audio->path);
+            $logo = url(Setting::MainSettings()->logo);
             $footer = Setting::MainSettings()->footer;
 
             return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer');

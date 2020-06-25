@@ -15,7 +15,7 @@ class Controller extends BaseController
     public function storeFiles($folderName, $requestName)
     {
         $name = \request()->file($requestName)->getClientOriginalName();
-        Request::file($requestName)->move($folderName, $name);
+        Request::file($requestName)->move("/".$folderName, $name);
         return "/$folderName/" . $name;
     }
 }
