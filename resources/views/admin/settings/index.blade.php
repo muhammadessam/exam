@@ -28,7 +28,7 @@
                                             @if(\App\Setting::MainSettings()->logo)
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <img class="img-thumbnail" style="width: 150px;height: 150px;" src="{{\App\Setting::MainSettings()->logo}}" alt="">
+                                                        <img class="img-thumbnail" style="width: 150px;height: 150px;" src="{{asset(\App\Setting::MainSettings()->logo)}}" alt="">
                                                     </div>
                                                 </div>
                                             @endif
