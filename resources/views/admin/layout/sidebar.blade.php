@@ -15,7 +15,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview {{\Illuminate\Support\Facades\Request::segment(2)=='sections'?'menu-open':''}}">
+            <li class="nav-item has-treeview menu-open">
                 <a href="#" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -27,20 +27,20 @@
                     @foreach(\App\Models\Section::all() as $section)
                         <li class="nav-item">
                             <a href="{{route('admin.sections.show', $section)}}"
-                               class="nav-link {{\Illuminate\Support\Facades\Request::segment(4)==$section['id'] ? 'active':''}}">
+                               class="nav-link {{request()->routeIs('admin.sections.show', $section) ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{$section['name']}}</p>
                             </a>
                         </li>
                     @endforeach
                     <li class="nav-item">
-                        <a href="{{route('admin.settings.index')}}" class="nav-link">
+                        <a href="{{route('admin.settings.index')}}" class="nav-link {{request()->routeIs('admin.settings.*') ? 'active' : ''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Settings</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.test.index')}}" class="nav-link">
+                        <a href="{{route('admin.test.index')}}" class="nav-link {{request()->routeIs('admin.test.*') ? 'active' : ''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>New Test</p>
                         </a>

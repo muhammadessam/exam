@@ -44,7 +44,7 @@ class QuestionController extends Controller
             'correct_answer' => 'required',
             'group_id' => 'required',
         ]);
-        $request['degree'] = $request['degree'] ? $request['degree'] : Group::find($request['group_id'])->section->degree;
+        $request['degree'] = $request['degree'] ?? Group::find($request['group_id'])->section->degree;
         Group::find($request['group_id'])->questions()->create($request->all());
         toast('Question added successfully', 'success');
         return redirect()->back();
@@ -86,7 +86,7 @@ class QuestionController extends Controller
             'a1' => 'required',
             'correct_answer' => 'required',
         ]);
-        $request['degree'] = $request['degree'] ? $request['degree'] : $question->group->section->degree;
+        $request['degree'] = $request['degree'] ?? $question->group->section->degree;
         $question->update($request->all());
         toast('Modifications saved', 'success');
         return redirect()->route('admin.groups.show', $question['group_id']);

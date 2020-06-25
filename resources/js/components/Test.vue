@@ -254,6 +254,11 @@
                         </div><!-- /.box -->
                     </div>
 
+                    <div class="row mt-auto">
+                        <div class="col-12">
+                            <div v-html="footer"></div>
+                        </div>
+                    </div>
                     <div class="row mt-5">
                         <div class="col-12 text-right">
                             <button class="btn btn-primary no-print" @click="print()">Print</button>
@@ -286,7 +291,8 @@
                 ls: [],
                 audio: '',
                 description: '',
-                log: '',
+                logo: '',
+                footer: '',
                 // readingGroup: null,
                 // listeningGroup: null,
 
@@ -450,6 +456,8 @@
                 this.ls = res.data.ls.questions;
                 this.audio = res.data.audio;
                 this.description = res.data.reading.description.description;
+                this.logo = res.data.logo;
+                this.footer = res.data.footer;
                 // this.listeningGroup = res.data.listening;
                 // this.readingGroup = res.data.reading;
                 // shuffling answers

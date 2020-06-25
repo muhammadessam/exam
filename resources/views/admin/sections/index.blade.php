@@ -17,6 +17,7 @@
                                 </form>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <h3>{{$section->name}} Groups</h3>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Test;
 
 use App\Http\Controllers\Controller;
 use App\Models\Section;
+use App\Setting;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -18,6 +19,7 @@ class TestController extends Controller
                 return $value->audio()->exists();
             })->random();
             $ls = Section::LS()->groups->random();
+            $audio = url($listening->audio->path);
 
         } catch (\InvalidArgumentException $exception) {
             alert()->error('Exam entries are not yet completed');
@@ -37,11 +39,11 @@ class TestController extends Controller
                 return $value->audio()->exists();
             })->random();
             $ls = Section::LS()->groups->random();
-            $audio = url($listening->audio->path);
+            $audio = asset($listening->audio->path);
+            $logo = asset(Setting::MainSettings()->logo);
+            $footer = Setting::MainSettings()->footer;
 
-            return compact('reading', 'listening', 'ls' ,'audio');
-
-
+            return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer');
         } catch (\InvalidArgumentException $exception) {
             return back()->withErrors($exception->getMessage());
         }
