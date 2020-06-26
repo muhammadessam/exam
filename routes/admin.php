@@ -34,6 +34,8 @@ Route::prefix('admin')->group(function () {
                 Route::resource('settings', 'SettingController');
                 Route::get('testData', 'TestController@generate')->name('test.generate');
                 Route::get('test', 'TestController@index')->name('test.index');
+                Route::post('test-store', 'TestController@store')->name('test.store');
+                Route::get('test-students', 'TestController@students')->name('test.students');
             });
         });
         Route::get('home', 'HomeController@index')->name('home');

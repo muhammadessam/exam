@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Test;
 use App\Http\Controllers\Controller;
 use App\Models\Section;
 use App\Setting;
+use App\Test;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -42,13 +43,30 @@ class TestController extends Controller
             $audio = url($listening->audio->path);
             $logo = url(Setting::MainSettings()->logo);
             $footer = Setting::MainSettings()->footer;
-
-            return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer');
+            $time = Setting::MainSettings()->time;
+            return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer', 'time');
         } catch (\InvalidArgumentException $exception) {
             return back()->withErrors($exception->getMessage());
         }
 
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'reading' => 'required',
+            'listening' => 'required',
+            'ls' => 'required',
+            'student_name' => 'required',
+            'student_id' => 'required',
+        ]);
+        Test::create($request->all());
+        return 'Done';
+    }
+
+    public function students()
+    {
+        return view('admin.test.students');
+    }
 
 }

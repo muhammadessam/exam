@@ -34,6 +34,12 @@
                         </li>
                     @endforeach
                     <li class="nav-item">
+                        <a href="{{route('admin.test.students')}}" class="nav-link {{request()->routeIs('admin.test.students') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Students</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{route('admin.settings.index')}}" class="nav-link {{request()->routeIs('admin.settings.*') ? 'active' : ''}}">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Settings</p>
@@ -45,6 +51,7 @@
                             <p>New Test</p>
                         </a>
                     </li>
+
                 </ul>
             </li>
 

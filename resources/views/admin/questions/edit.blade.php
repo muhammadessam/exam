@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card card-primary mt-3">
                     <div class="card-header">
-                        <h3>Add new question</h3>
+                        <h3>Edit</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{route('admin.questions.update', $question)}}" method="post">

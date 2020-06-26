@@ -1,6 +1,36 @@
 <template>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-10">
+            <div class="row mb-5" no-print>
+                <div class="col-12 no-print">
+                    <div class="card no-print">
+                        <div class="card-body no-print">
+                            <countdown ref="countdown" :time="time*60*1000" :auto-start="false" @end="showResult()" class="no-print">
+                                <div class="d-flex justify-content-center align-items-center" slot-scope="props">
+                                    <div class="progress mb-3 circle">
+                                        <div class="progress-bar bg-success" role="progressbar" :aria-valuenow="props.hours" aria-valuemin="0" aria-valuemax="100" :style="{width: (props.hours * 100)/Math.floor(time / 60) + '%'}">
+                                            {{ props.hours }}
+                                            <p>Hours</p>
+                                        </div>
+                                    </div>
+                                    <div class="progress mb-3 circle">
+                                        <div class="progress-bar bg-success" role="progressbar" :aria-valuenow="props.minutes" aria-valuemin="0" aria-valuemax="100" :style="{width: (props.minutes * 100)/(time % 60) + '%'}">
+                                            {{ props.minutes }}
+                                            <p>Minutes</p>
+                                        </div>
+                                    </div>
+                                    <div class="progress mb-3 circle">
+                                        <div class="progress-bar bg-success" role="progressbar" :aria-valuenow="props.seconds" aria-valuemin="0" aria-valuemax="100" :style="{width: (props.seconds *100)/60+ '%'}">
+                                            {{ props.seconds }}
+                                            <p>Seconds</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </countdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- start section questions-->
             <div class="row" v-if="sectionsVisibility[0]">
                 <div class="col-6">
@@ -293,6 +323,9 @@
                 description: '',
                 logo: '',
                 footer: '',
+                time: 90,
+                firstMins: '',
+                firstHours: '',
                 // readingGroup: null,
                 // listeningGroup: null,
 
@@ -306,6 +339,7 @@
                 listeningResult: 0,
                 grammarResult: 0,
                 overallResult: 0,
+
 
                 // barchart
                 options: {
@@ -366,6 +400,7 @@
                     this.showResult();
                 }
                 if (this.studentName != '') {
+                    this.$refs.countdown.start();
                     if (direction == 'F') {
                         this.$set(this.sectionsVisibility, index + 1, true)
                         this.$set(this.sectionsVisibility, index, false)
@@ -404,7 +439,6 @@
 
             calcResult() {
                 this.listening.forEach((q) => {
-                    console.log(q)
                     if (q.choice == q.correct_answer) {
                         this.listeningResult += q.degree;
                     }
@@ -438,16 +472,36 @@
             },
 
             showResult() {
+                this.$set(this.sectionsVisibility, 4, true)
+                this.$set(this.sectionsVisibility, 3, false)
+                this.$set(this.sectionsVisibility, 2, false)
+                this.$set(this.sectionsVisibility, 1, false)
+                this.$set(this.sectionsVisibility, 0, false)
+
                 this.calcResult();
                 this.dataset.datasets[0].data[0] = this.listeningResult;
                 this.dataset.datasets[0].data[1] = this.readingResult;
                 this.dataset.datasets[0].data[2] = this.grammarResult;
-
+                let data = {
+                    reading: this.readingResult,
+                    listening: this.listeningResult,
+                    ls: this.grammarResult,
+                    student_name: this.studentName,
+                    student_id: this.studentID
+                }
+                window.axios.post(route('admin.test.store'), data).then((res) => {
+                    console.log(res.data);
+                })
+            },
+            timerCountDownEnd() {
+                console.log('ended');
             },
 
             print() {
+                document.title = this.studentName + " " + new Date().toISOString().slice(0, 10);
                 window.print();
-            }
+            },
+
         },
         mounted() {
             window.axios.get(route('admin.test.generate')).then((res) => {
@@ -458,9 +512,8 @@
                 this.description = res.data.reading.description.description;
                 this.logo = res.data.logo;
                 this.footer = res.data.footer;
-                // this.listeningGroup = res.data.listening;
-                // this.readingGroup = res.data.reading;
-                // shuffling answers
+                this.time = res.data.time;
+
                 this.reading.forEach(function (q) {
                     q.choice = null;
                     q.ans = [q.a1, q.a2, q.a3, q.correct_answer];
@@ -487,5 +540,13 @@
         #levels th {
             background-color: #007bff !important;
         }
+    }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        margin: 3px;
+        border: solid 0px black;
+        border-radius: 50%;
     }
 </style>

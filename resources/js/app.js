@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 import TextareaAutosize from 'vue-textarea-autosize'
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 window.Vue = require('vue');
 
@@ -23,6 +24,7 @@ Vue.use(TextareaAutosize);
 Vue.use(require('vue-moment'));
 
 Vue.component('test-component', require('./components/Test.vue').default);
+Vue.component(VueCountdown.name, VueCountdown);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

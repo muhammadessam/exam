@@ -11,7 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01b1ea63-2493-4b54-826b-526adcd39575" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Test.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_06_26_194611_create_tests_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/test/students.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Test/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Test/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/datatable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/datatable.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +38,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -200,7 +217,10 @@
       <workItem from="1593039711009" duration="1296000" />
       <workItem from="1593080642730" duration="3765000" />
       <workItem from="1593089781170" duration="2356000" />
-      <workItem from="1593094543778" duration="881000" />
+      <workItem from="1593094543778" duration="1497000" />
+      <workItem from="1593176084602" duration="101000" />
+      <workItem from="1593176198120" duration="2816000" />
+      <workItem from="1593182582826" duration="10738000" />
     </task>
     <servers />
   </component>
@@ -220,14 +240,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="166" key="#Plugins" timestamp="1593177065405">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="166" key="#Plugins/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593177065405" />
     <state x="542" y="329" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592910776104">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="542" y="329" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1592910776104" />
-    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1592915609118">
+    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1593204232406">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1592915609118" />
+    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593204232406" />
     <state x="2449" y="424" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1280.994@1920.0.1280.994" timestamp="1592576534216" />
     <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1592696274900" />
     <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1592581465337" />
@@ -244,15 +268,15 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="839" height="377" key="javadoc.popup.new/0.0.1920.1050@0.0.1920.1050" timestamp="1593081193299" />
-    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1593083279331">
+    <state x="616" y="243" key="run.anything.popup" timestamp="1593200915681">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1592787762367" />
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593200915681" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1593083279331" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1593090761996">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1593204368267">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593090761996" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593204368267" />
     <state x="2335" y="215" width="672" height="642" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@1920.0.1280.994" timestamp="1592576706558" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1592696319257" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1593084351892" />
