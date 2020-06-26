@@ -44,8 +44,14 @@ class QuestionController extends Controller
             'correct_answer' => 'required',
             'group_id' => 'required',
         ]);
+        $group = Group::find($request['group_id']);
         $request['degree'] = $request['degree'] ?? Group::find($request['group_id'])->section->degree;
-        Group::find($request['group_id'])->questions()->create($request->all());
+        if ($group->questions->count() < $group->section->max)
+            Group::find($request['group_id'])->questions()->create($request->all());
+        else {
+            toast('Max number is reached', 'error');
+            return redirect()->back();
+        }
         toast('Question added successfully', 'success');
         return redirect()->back();
     }
