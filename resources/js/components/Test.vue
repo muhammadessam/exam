@@ -222,7 +222,7 @@
                                                     <div class="row">
                                                         <div class="col-12 text-center">
                                                             <h4 class="mb-3">
-                                                                Student: {{studentName}}
+                                                                Name: {{studentName}}
                                                             </h4>
                                                         </div>
                                                     </div>
@@ -245,7 +245,7 @@
                                                 <table class="table table-hover">
                                                     <tr>
                                                         <th></th>
-                                                        <th>Percentage</th>
+                                                        <th></th>
                                                     </tr>
                                                     <tr>
                                                         <td>Listening</td>
