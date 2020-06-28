@@ -39,5 +39,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="sectionGroups" printHead="Students"></x-datatable>
+    <x-datatable id="sectionGroups" printHead="Students" cols="[0,1,2,3,4]"></x-datatable>
 @endsection

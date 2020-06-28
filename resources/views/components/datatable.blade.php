@@ -1,5 +1,4 @@
-@props(['id' => 'table', 'printHead'])
-
+@props(['id' => 'table', 'printHead', 'cols'=>'[]'])
 <script>
     let description = $('#readingdescription');
     $('#{{$id}}').DataTable({
@@ -12,7 +11,7 @@
             {
                 extend: 'print',
                 exportOptions: {
-                    columns: [0,1, 2, 3, 4,5]
+                    columns: {{$cols}},
                 },
                 customize: function (win) {
                     $(win.document.head).find('title').text('{{$printHead}}');

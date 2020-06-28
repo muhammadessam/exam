@@ -74,7 +74,7 @@
                                 @csrf
                                 <input type="hidden" name="group_id" value="{{$group['id']}}">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="8" name="description" id="desc">{{$group->description ? $group->description->description : ''}}</textarea>
+                                    <textarea class="form-control" rows="15" name="description" id="desc">{{$group->description ? $group->description->description : ''}}</textarea>
                                     <x-error name="description"></x-error>
                                 </div>
                                 <div class="form-group no-print">
@@ -183,5 +183,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="sectionGroups" printHead="{{$group->section->name}} - {{$group->name}} - Questions"></x-datatable>
+    <x-datatable id="sectionGroups" printHead="{{$group->section->name}} - {{$group->name}} - Questions" cols="[0,1,2,3,4,5]"></x-datatable>
 @endsection
