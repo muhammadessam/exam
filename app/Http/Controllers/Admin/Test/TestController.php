@@ -45,8 +45,8 @@ class TestController extends Controller
             $footer = Setting::MainSettings()->footer;
             $time = Setting::MainSettings()->time;
             $readingInst = Section::Reading()->instructions;
-            $listeningInst = Section::Reading()->instructions;
-            $lsInst = Section::Reading()->instructions;
+            $listeningInst = Section::Listening()->instructions;
+            $lsInst = Section::LS()->instructions;
             return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer', 'time', 'readingInst', 'listeningInst', 'lsInst');
         } catch (\InvalidArgumentException $exception) {
             return back()->withErrors($exception->getMessage());

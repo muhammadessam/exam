@@ -70,7 +70,7 @@
                                 <div class="col-12">
                                     <div class="row mb-5">
                                         <div class="col-12 text-center" v-if="audioFades">
-                                            <audio controls disable @ended="audioFades =false">
+                                            <audio controls disable @ended="audioFades = audioCount == 1 ? false : true; audioCount++">
                                                 <source :src="audio" type="audio/mpeg">
                                                 Your browser does not support the audio element.
                                             </audio>
@@ -329,6 +329,7 @@
                 studentName: '',
                 studentID: '',
                 audioFades: true,
+                audioCount: 0,
                 // getting question
                 reading: [],
                 listening: [],
@@ -532,9 +533,10 @@
                 this.logo = res.data.logo;
                 this.footer = res.data.footer;
                 this.time = res.data.time;
-                this.readingInst =res.data.readingInst;
-                this.listeningInst =res.data.listeningInst;
-                this.LsInst =res.data.lsInst;
+                this.readingInst = res.data.readingInst;
+                this.listeningInst = res.data.listeningInst;
+                this.LsInst = res.data.lsInst;
+
                 this.reading.forEach(function (q) {
                     q.choice = null;
                     q.ans = [q.a1, q.a2, q.a3, q.correct_answer];
