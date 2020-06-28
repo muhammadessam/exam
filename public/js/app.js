@@ -2646,6 +2646,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2657,10 +2671,14 @@ __webpack_require__.r(__webpack_exports__);
       sectionsVisibility: [true, false, false, false, false],
       studentName: '',
       studentID: '',
+      audioFades: true,
       // getting question
       reading: [],
       listening: [],
       ls: [],
+      readingInst: '',
+      listeningInst: '',
+      LsInst: '',
       audio: '',
       description: '',
       logo: '',
@@ -2806,6 +2824,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     showResult: function showResult() {
+      this.$refs.countdown.end();
       this.$set(this.sectionsVisibility, 4, true);
       this.$set(this.sectionsVisibility, 3, false);
       this.$set(this.sectionsVisibility, 2, false);
@@ -2846,6 +2865,9 @@ __webpack_require__.r(__webpack_exports__);
       _this2.logo = res.data.logo;
       _this2.footer = res.data.footer;
       _this2.time = res.data.time;
+      _this2.readingInst = res.data.readingInst;
+      _this2.listeningInst = res.data.listeningInst;
+      _this2.LsInst = res.data.lsInst;
 
       _this2.reading.forEach(function (q) {
         q.choice = null;
@@ -58782,11 +58804,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row justify-content-center mt-5" }, [
-    _c("div", { staticClass: "col-10" }, [
+  return _c("div", { staticClass: "row mb-1" }, [
+    _c("div", { staticClass: "col-12" }, [
       _c("div", { staticClass: "row mb-5", attrs: { "no-print": "" } }, [
-        _c("div", { staticClass: "col-12 no-print" }, [
-          _c("div", { staticClass: "card no-print" }, [
+        _c("div", { staticClass: "col-6 no-print" }, [
+          _c("div", { staticClass: " no-print" }, [
             _c(
               "div",
               { staticClass: "card-body no-print" },
@@ -58903,116 +58925,313 @@ var render = function() {
               1
             )
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.sectionsVisibility[1]
+          ? _c("div", {
+              staticClass: "col-6 no-print pt-5",
+              domProps: { innerHTML: _vm._s(_vm.listeningInst) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.sectionsVisibility[2]
+          ? _c("div", {
+              staticClass: "col-6 no-print pt-5",
+              domProps: { innerHTML: _vm._s(_vm.readingInst) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.sectionsVisibility[3]
+          ? _c("div", {
+              staticClass: "col-6 no-print pt-5",
+              domProps: { innerHTML: _vm._s(_vm.lsInst) }
+            })
+          : _vm._e()
       ]),
       _vm._v(" "),
-      _vm.sectionsVisibility[0]
-        ? _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Name: ")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.studentName,
-                      expression: "studentName"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "name",
-                    id: "name",
-                    placeholder: "please enter your name",
-                    required: ""
-                  },
-                  domProps: { value: _vm.studentName },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+      _c("div", { staticClass: "row justify-content-center mt-5 card-body" }, [
+        _c("div", { staticClass: "col-10" }, [
+          _vm.sectionsVisibility[0]
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "name" } }, [_vm._v("Name: ")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.studentName,
+                          expression: "studentName"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "name",
+                        id: "name",
+                        placeholder: "please enter your name",
+                        required: ""
+                      },
+                      domProps: { value: _vm.studentName },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.studentName = $event.target.value
+                        }
                       }
-                      _vm.studentName = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "id" } }, [_vm._v("ID: ")]),
+                    })
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.studentID,
-                      expression: "studentID"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    name: "id",
-                    id: "id",
-                    placeholder: "please enter your ID",
-                    required: ""
-                  },
-                  domProps: { value: _vm.studentID },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "col-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "id" } }, [_vm._v("ID: ")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.studentID,
+                          expression: "studentID"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "id",
+                        id: "id",
+                        placeholder: "please enter your ID",
+                        required: ""
+                      },
+                      domProps: { value: _vm.studentID },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.studentID = $event.target.value
+                        }
                       }
-                      _vm.studentID = $event.target.value
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        return _vm.switchVisibility(0, "F")
+                      }
                     }
-                  }
-                })
+                  },
+                  [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Start")]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                on: {
-                  click: function($event) {
-                    return _vm.switchVisibility(0, "F")
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fa fa-star" }), _vm._v(" Start")]
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sectionsVisibility[1]
-        ? _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "row" }, [
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.sectionsVisibility[1]
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-12" },
+                      [
+                        _c("div", { staticClass: "row mb-5" }, [
+                          _vm.audioFades
+                            ? _c("div", { staticClass: "col-12 text-center" }, [
+                                _c(
+                                  "audio",
+                                  {
+                                    attrs: { controls: "", disable: "" },
+                                    on: {
+                                      ended: function($event) {
+                                        _vm.audioFades = false
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("source", {
+                                      attrs: {
+                                        src: _vm.audio,
+                                        type: "audio/mpeg"
+                                      }
+                                    }),
+                                    _vm._v(
+                                      "\n                                            Your browser does not support the audio element.\n                                        "
+                                    )
+                                  ]
+                                )
+                              ])
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.listening, function(question, index) {
+                          return _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-12" },
+                              [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-12" }, [
+                                    _c("strong", [
+                                      _vm._v(
+                                        _vm._s(index + 1) +
+                                          " - " +
+                                          _vm._s(question.question)
+                                      )
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _vm._l(question.ans, function(answer) {
+                                  return answer
+                                    ? _c("div", { staticClass: "row " }, [
+                                        _c("div", { staticClass: "col-12" }, [
+                                          _c(
+                                            "div",
+                                            { staticClass: "radio pl-4" },
+                                            [
+                                              _c("label", [
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        _vm.listening_answers[
+                                                          index
+                                                        ],
+                                                      expression:
+                                                        "listening_answers[index]"
+                                                    }
+                                                  ],
+                                                  attrs: { type: "radio" },
+                                                  domProps: {
+                                                    value: answer,
+                                                    checked: _vm._q(
+                                                      _vm.listening_answers[
+                                                        index
+                                                      ],
+                                                      answer
+                                                    )
+                                                  },
+                                                  on: {
+                                                    change: [
+                                                      function($event) {
+                                                        return _vm.$set(
+                                                          _vm.listening_answers,
+                                                          index,
+                                                          answer
+                                                        )
+                                                      },
+                                                      function($event) {
+                                                        return _vm.answerListening(
+                                                          question,
+                                                          index
+                                                        )
+                                                      }
+                                                    ]
+                                                  }
+                                                }),
+                                                _vm._v(
+                                                  "\n                                                        " +
+                                                    _vm._s(answer) +
+                                                    "\n                                                    "
+                                                )
+                                              ])
+                                            ]
+                                          )
+                                        ])
+                                      ])
+                                    : _vm._e()
+                                })
+                              ],
+                              2
+                            )
+                          ])
+                        })
+                      ],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row mt-5" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.switchVisibility(1, "B")
+                            }
+                          }
+                        },
+                        [_vm._v("Previous")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-6 text-right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          on: {
+                            click: function($event) {
+                              return _vm.switchVisibility(1, "F")
+                            }
+                          }
+                        },
+                        [_vm._v("Next")]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.sectionsVisibility[2]
+            ? _c("div", { staticClass: "row" }, [
                 _c(
                   "div",
                   { staticClass: "col-12" },
                   [
                     _c("div", { staticClass: "row mb-5" }, [
-                      _c("div", { staticClass: "col-12 text-center" }, [
-                        _c("audio", { attrs: { controls: "" } }, [
-                          _c("source", {
-                            attrs: { src: _vm.audio, type: "audio/mpeg" }
-                          }),
-                          _vm._v(
-                            "\n                                    Your browser does not support the audio element.\n                                "
-                          )
-                        ])
-                      ])
+                      _c(
+                        "div",
+                        { staticClass: "col-12" },
+                        [
+                          _c("textarea-autosize", {
+                            ref: "description",
+                            staticClass: "form-control",
+                            attrs: { "min-height": 30, "max-height": 500 },
+                            nativeOn: {
+                              blur: function($event) {
+                                return _vm.onBlurTextarea($event)
+                              }
+                            },
+                            model: {
+                              value: _vm.description,
+                              callback: function($$v) {
+                                _vm.description = $$v
+                              },
+                              expression: "description"
+                            }
+                          })
+                        ],
+                        1
+                      )
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.listening, function(question, index) {
+                    _vm._l(_vm.reading, function(question, index) {
                       return _c("div", { staticClass: "row" }, [
                         _c(
                           "div",
@@ -59032,7 +59251,7 @@ var render = function() {
                             _vm._v(" "),
                             _vm._l(question.ans, function(answer) {
                               return answer
-                                ? _c("div", { staticClass: "row " }, [
+                                ? _c("div", { staticClass: "row" }, [
                                     _c("div", { staticClass: "col-12" }, [
                                       _c("div", { staticClass: "radio pl-4" }, [
                                         _c("label", [
@@ -59042,16 +59261,16 @@ var render = function() {
                                                 name: "model",
                                                 rawName: "v-model",
                                                 value:
-                                                  _vm.listening_answers[index],
+                                                  _vm.reading_answers[index],
                                                 expression:
-                                                  "listening_answers[index]"
+                                                  "reading_answers[index]"
                                               }
                                             ],
                                             attrs: { type: "radio" },
                                             domProps: {
                                               value: answer,
                                               checked: _vm._q(
-                                                _vm.listening_answers[index],
+                                                _vm.reading_answers[index],
                                                 answer
                                               )
                                             },
@@ -59059,13 +59278,13 @@ var render = function() {
                                               change: [
                                                 function($event) {
                                                   return _vm.$set(
-                                                    _vm.listening_answers,
+                                                    _vm.reading_answers,
                                                     index,
                                                     answer
                                                   )
                                                 },
                                                 function($event) {
-                                                  return _vm.answerListening(
+                                                  return _vm.answerReading(
                                                     question,
                                                     index
                                                   )
@@ -59088,510 +59307,388 @@ var render = function() {
                           2
                         )
                       ])
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row mt-5" }, [
+                      _c("div", { staticClass: "col-6" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            on: {
+                              click: function($event) {
+                                return _vm.switchVisibility(2, "B")
+                              }
+                            }
+                          },
+                          [_vm._v("Previous")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-6 text-right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            on: {
+                              click: function($event) {
+                                return _vm.switchVisibility(2, "F")
+                              }
+                            }
+                          },
+                          [_vm._v("Next")]
+                        )
+                      ])
+                    ])
                   ],
                   2
                 )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row mt-5" }, [
-                _c("div", { staticClass: "col-6" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: {
-                        click: function($event) {
-                          return _vm.switchVisibility(1, "B")
-                        }
-                      }
-                    },
-                    [_vm._v("Previous")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6 text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      on: {
-                        click: function($event) {
-                          return _vm.switchVisibility(1, "F")
-                        }
-                      }
-                    },
-                    [_vm._v("Next")]
-                  )
-                ])
               ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sectionsVisibility[2]
-        ? _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-12" },
-              [
-                _c("div", { staticClass: "row mb-5" }, [
-                  _c(
-                    "div",
-                    { staticClass: "col-12" },
-                    [
-                      _c("textarea-autosize", {
-                        ref: "description",
-                        staticClass: "form-control",
-                        attrs: { "min-height": 30, "max-height": 500 },
-                        nativeOn: {
-                          blur: function($event) {
-                            return _vm.onBlurTextarea($event)
-                          }
-                        },
-                        model: {
-                          value: _vm.description,
-                          callback: function($$v) {
-                            _vm.description = $$v
-                          },
-                          expression: "description"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.reading, function(question, index) {
-                  return _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-12" },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("strong", [
-                              _vm._v(
-                                _vm._s(index + 1) +
-                                  " - " +
-                                  _vm._s(question.question)
-                              )
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(question.ans, function(answer) {
-                          return answer
-                            ? _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col-12" }, [
-                                  _c("div", { staticClass: "radio pl-4" }, [
-                                    _c("label", [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.reading_answers[index],
-                                            expression: "reading_answers[index]"
-                                          }
-                                        ],
-                                        attrs: { type: "radio" },
-                                        domProps: {
-                                          value: answer,
-                                          checked: _vm._q(
-                                            _vm.reading_answers[index],
-                                            answer
-                                          )
-                                        },
-                                        on: {
-                                          change: [
-                                            function($event) {
-                                              return _vm.$set(
-                                                _vm.reading_answers,
-                                                index,
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.sectionsVisibility[3]
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-12" },
+                  [
+                    _vm._l(_vm.ls, function(question, index) {
+                      return _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          { staticClass: "col-12" },
+                          [
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-12" }, [
+                                _c("strong", [
+                                  _vm._v(
+                                    _vm._s(index + 1) +
+                                      " - " +
+                                      _vm._s(question.question)
+                                  )
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(question.ans, function(answer) {
+                              return answer
+                                ? _c("div", { staticClass: "row" }, [
+                                    _c("div", { staticClass: "col-12" }, [
+                                      _c("div", { staticClass: "radio pl-4" }, [
+                                        _c("label", [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: _vm.ls_answers[index],
+                                                expression: "ls_answers[index]"
+                                              }
+                                            ],
+                                            attrs: { type: "radio" },
+                                            domProps: {
+                                              value: answer,
+                                              checked: _vm._q(
+                                                _vm.ls_answers[index],
                                                 answer
                                               )
                                             },
-                                            function($event) {
-                                              return _vm.answerReading(
-                                                question,
-                                                index
-                                              )
+                                            on: {
+                                              change: [
+                                                function($event) {
+                                                  return _vm.$set(
+                                                    _vm.ls_answers,
+                                                    index,
+                                                    answer
+                                                  )
+                                                },
+                                                function($event) {
+                                                  return _vm.answerLS(
+                                                    question,
+                                                    index
+                                                  )
+                                                }
+                                              ]
                                             }
-                                          ]
-                                        }
-                                      }),
-                                      _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(answer) +
-                                          "\n                                    "
-                                      )
-                                    ])
-                                  ])
-                                ])
-                              ])
-                            : _vm._e()
-                        })
-                      ],
-                      2
-                    )
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row mt-5" }, [
-                  _c("div", { staticClass: "col-6" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.switchVisibility(2, "B")
-                          }
-                        }
-                      },
-                      [_vm._v("Previous")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-6 text-right" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.switchVisibility(2, "F")
-                          }
-                        }
-                      },
-                      [_vm._v("Next")]
-                    )
-                  ])
-                ])
-              ],
-              2
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sectionsVisibility[3]
-        ? _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-12" },
-              [
-                _vm._l(_vm.ls, function(question, index) {
-                  return _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-12" },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-12" }, [
-                            _c("strong", [
-                              _vm._v(
-                                _vm._s(index + 1) +
-                                  " - " +
-                                  _vm._s(question.question)
-                              )
-                            ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(question.ans, function(answer) {
-                          return answer
-                            ? _c("div", { staticClass: "row" }, [
-                                _c("div", { staticClass: "col-12" }, [
-                                  _c("div", { staticClass: "radio pl-4" }, [
-                                    _c("label", [
-                                      _c("input", {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: _vm.ls_answers[index],
-                                            expression: "ls_answers[index]"
-                                          }
-                                        ],
-                                        attrs: { type: "radio" },
-                                        domProps: {
-                                          value: answer,
-                                          checked: _vm._q(
-                                            _vm.ls_answers[index],
-                                            answer
+                                          }),
+                                          _vm._v(
+                                            "\n                                                " +
+                                              _vm._s(answer) +
+                                              "\n                                            "
                                           )
-                                        },
-                                        on: {
-                                          change: [
-                                            function($event) {
-                                              return _vm.$set(
-                                                _vm.ls_answers,
-                                                index,
-                                                answer
-                                              )
-                                            },
-                                            function($event) {
-                                              return _vm.answerLS(
-                                                question,
-                                                index
-                                              )
-                                            }
-                                          ]
-                                        }
-                                      }),
-                                      _vm._v(
-                                        "\n                                        " +
-                                          _vm._s(answer) +
-                                          "\n                                    "
-                                      )
+                                        ])
+                                      ])
                                     ])
                                   ])
-                                ])
-                              ])
-                            : _vm._e()
-                        })
-                      ],
-                      2
-                    )
-                  ])
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row mt-5" }, [
-                  _c("div", { staticClass: "col-6" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.switchVisibility(3, "B")
-                          }
-                        }
-                      },
-                      [_vm._v("Previous")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-6 text-right" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.switchVisibility(3, "F")
-                          }
-                        }
-                      },
-                      [_vm._v("Submit")]
-                    )
-                  ])
-                ])
-              ],
-              2
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.sectionsVisibility[4]
-        ? _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("div", { staticClass: "box" }, [
-                    _c("div", { staticClass: "box-header text-center mb-1" }, [
-                      _c("div", { staticClass: "logo text-center" }, [
-                        _c("img", {
-                          staticStyle: { width: "100px", height: "100px" },
-                          attrs: { src: _vm.logo, alt: "asdasd" }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(
-                          "\n                                    www.eitd-oman.com\n                                "
+                                : _vm._e()
+                            })
+                          ],
+                          2
                         )
                       ])
-                    ]),
+                    }),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "box-body", attrs: { id: "result" } },
-                      [
-                        _c("h1", { staticClass: "box-title text-center" }, [
-                          _vm._v("English Level Certificate")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "row text-center mb-5" }, [
-                          _c("div", { staticClass: "col-md-12" }, [
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-12 text-center" }, [
-                                _c("h4", { staticClass: "mb-3" }, [
-                                  _vm._v(
-                                    "\n                                                    Student: " +
-                                      _vm._s(_vm.studentName) +
-                                      "\n                                                "
-                                  )
-                                ])
-                              ])
+                    _c("div", { staticClass: "row mt-5" }, [
+                      _c("div", { staticClass: "col-6" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            on: {
+                              click: function($event) {
+                                return _vm.switchVisibility(3, "B")
+                              }
+                            }
+                          },
+                          [_vm._v("Previous")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-6 text-right" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            on: {
+                              click: function($event) {
+                                return _vm.switchVisibility(3, "F")
+                              }
+                            }
+                          },
+                          [_vm._v("Submit")]
+                        )
+                      ])
+                    ])
+                  ],
+                  2
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.sectionsVisibility[4]
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("div", { staticClass: "box" }, [
+                        _c(
+                          "div",
+                          { staticClass: "box-header text-center mb-1" },
+                          [
+                            _c("div", { staticClass: "logo text-center" }, [
+                              _c("img", {
+                                staticStyle: {
+                                  width: "100px",
+                                  height: "100px"
+                                },
+                                attrs: { src: _vm.logo, alt: "asdasd" }
+                              })
                             ]),
                             _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-12" }, [
-                                _vm.studentID
-                                  ? _c("h4", { staticClass: "mb-3" }, [
-                                      _vm._v(
-                                        "\n                                                    ID: " +
-                                          _vm._s(_vm.studentID) +
-                                          "\n                                                "
-                                      )
-                                    ])
-                                  : _vm._e()
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col-12" }, [
-                                _c("span", [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm._f("moment")(
-                                        new Date(),
-                                        "dddd, MMMM Do YYYY - h:m"
-                                      )
-                                    )
-                                  )
-                                ])
-                              ])
+                            _c("div", [
+                              _vm._v(
+                                "\n                                            www.eitd-oman.com\n                                        "
+                              )
                             ])
-                          ])
-                        ]),
+                          ]
+                        ),
                         _vm._v(" "),
                         _c(
                           "div",
-                          {
-                            staticClass: "table-responsive",
-                            staticStyle: { margin: "0 auto", width: "450px" }
-                          },
+                          { staticClass: "box-body", attrs: { id: "result" } },
                           [
-                            _c("table", { staticClass: "table table-hover" }, [
-                              _vm._m(0),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c("td", [_vm._v("Listening")]),
+                            _c("h1", { staticClass: "box-title text-center" }, [
+                              _vm._v("English Level Certificate")
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row text-center mb-5" }, [
+                              _c("div", { staticClass: "col-md-12" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c(
+                                    "div",
+                                    { staticClass: "col-12 text-center" },
+                                    [
+                                      _c("h4", { staticClass: "mb-3" }, [
+                                        _vm._v(
+                                          "\n                                                            Student: " +
+                                            _vm._s(_vm.studentName) +
+                                            "\n                                                        "
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]),
                                 _vm._v(" "),
-                                _c("td", [
-                                  _vm._v(_vm._s(_vm.listeningResult) + "%")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c("td", [_vm._v("Reading")]),
-                                _vm._v(" "),
-                                _c("td", [
-                                  _vm._v(_vm._s(_vm.readingResult) + "%")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("tr", [
-                                _c("td", [_vm._v("Language System")]),
-                                _vm._v(" "),
-                                _c("td", [
-                                  _vm._v(_vm._s(_vm.grammarResult) + "%")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "tr",
-                                {
-                                  staticStyle: {
-                                    "line-height": "50px",
-                                    "border-top": "1px solid",
-                                    "font-size": "larger",
-                                    "font-weight": "bold"
-                                  }
-                                },
-                                [
-                                  _c("td", [_vm._v("Overall")]),
-                                  _vm._v(" "),
-                                  _c("td", [
-                                    _vm._v(_vm._s(_vm.overallResult) + "%")
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-12" }, [
+                                    _vm.studentID
+                                      ? _c("h4", { staticClass: "mb-3" }, [
+                                          _vm._v(
+                                            "\n                                                            ID: " +
+                                              _vm._s(_vm.studentID) +
+                                              "\n                                                        "
+                                          )
+                                        ])
+                                      : _vm._e()
                                   ])
-                                ]
-                              )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-12" }, [
+                                    _c("span", [
+                                      _vm._v(
+                                        _vm._s(
+                                          _vm._f("moment")(
+                                            new Date(),
+                                            "dddd, MMMM Do YYYY - h:m"
+                                          )
+                                        )
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ])
                             ]),
                             _vm._v(" "),
                             _c(
                               "div",
                               {
+                                staticClass: "table-responsive",
                                 staticStyle: {
-                                  "margin-top": "2px",
-                                  "background-color": "#3579b4",
-                                  width: "100%",
-                                  "text-align": "center",
-                                  "margin-bottom": "30px"
+                                  margin: "0 auto",
+                                  width: "450px"
                                 }
                               },
                               [
-                                _c("h2", {
-                                  staticStyle: {
-                                    "-webkit-print-color-adjust": "exact",
-                                    color: "white",
-                                    "background-color": "#007bff",
-                                    width: "100%"
+                                _c(
+                                  "table",
+                                  { staticClass: "table table-hover" },
+                                  [
+                                    _vm._m(0),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td", [_vm._v("Listening")]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(
+                                          _vm._s(_vm.listeningResult) + "%"
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td", [_vm._v("Reading")]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(_vm._s(_vm.readingResult) + "%")
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("tr", [
+                                      _c("td", [_vm._v("Language System")]),
+                                      _vm._v(" "),
+                                      _c("td", [
+                                        _vm._v(_vm._s(_vm.grammarResult) + "%")
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "tr",
+                                      {
+                                        staticStyle: {
+                                          "line-height": "50px",
+                                          "border-top": "1px solid",
+                                          "font-size": "larger",
+                                          "font-weight": "bold"
+                                        }
+                                      },
+                                      [
+                                        _c("td", [_vm._v("Overall")]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(
+                                            _vm._s(_vm.overallResult) + "%"
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  {
+                                    staticStyle: {
+                                      "margin-top": "2px",
+                                      "background-color": "#3579b4",
+                                      width: "100%",
+                                      "text-align": "center",
+                                      "margin-bottom": "30px"
+                                    }
                                   },
-                                  attrs: { id: "level" },
-                                  domProps: {
-                                    textContent: _vm._s("Level " + _vm.level)
-                                  }
-                                })
+                                  [
+                                    _c("h2", {
+                                      staticStyle: {
+                                        "-webkit-print-color-adjust": "exact",
+                                        color: "white",
+                                        "background-color": "#007bff",
+                                        width: "100%"
+                                      },
+                                      attrs: { id: "level" },
+                                      domProps: {
+                                        textContent: _vm._s(
+                                          "Level " + _vm.level
+                                        )
+                                      }
+                                    })
+                                  ]
+                                )
                               ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("barChart", {
-                          attrs: {
-                            data: _vm.dataset,
-                            options: _vm.options,
-                            styles: _vm.style
+                            ),
+                            _vm._v(" "),
+                            _c("barChart", {
+                              attrs: {
+                                data: _vm.dataset,
+                                options: _vm.options,
+                                styles: _vm.style
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm._m(1)
+                          ],
+                          1
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row mt-auto" }, [
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("div", { domProps: { innerHTML: _vm._s(_vm.footer) } })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row mt-5" }, [
+                    _c("div", { staticClass: "col-12 text-right" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary no-print",
+                          on: {
+                            click: function($event) {
+                              return _vm.print()
+                            }
                           }
-                        }),
-                        _vm._v(" "),
-                        _vm._m(1)
-                      ],
-                      1
-                    )
+                        },
+                        [_vm._v("Print")]
+                      )
+                    ])
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row mt-auto" }, [
-                _c("div", { staticClass: "col-12" }, [
-                  _c("div", { domProps: { innerHTML: _vm._s(_vm.footer) } })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row mt-5" }, [
-                _c("div", { staticClass: "col-12 text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary no-print",
-                      on: {
-                        click: function($event) {
-                          return _vm.print()
-                        }
-                      }
-                    },
-                    [_vm._v("Print")]
-                  )
-                ])
               ])
-            ])
-          ])
-        : _vm._e()
+            : _vm._e()
+        ])
+      ])
     ])
   ])
 }

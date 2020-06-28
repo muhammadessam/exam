@@ -44,7 +44,10 @@ class TestController extends Controller
             $logo = url(Setting::MainSettings()->logo);
             $footer = Setting::MainSettings()->footer;
             $time = Setting::MainSettings()->time;
-            return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer', 'time');
+            $readingInst = Section::Reading()->instructions;
+            $listeningInst = Section::Reading()->instructions;
+            $lsInst = Section::Reading()->instructions;
+            return compact('reading', 'listening', 'ls', 'audio', 'logo', 'footer', 'time', 'readingInst', 'listeningInst', 'lsInst');
         } catch (\InvalidArgumentException $exception) {
             return back()->withErrors($exception->getMessage());
         }

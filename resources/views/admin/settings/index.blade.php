@@ -52,7 +52,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="time">Footer: </label>
-                                        <textarea id="mymce" class="form-control" name="footer" id="footer" cols="30" rows="10">{{\App\Setting::MainSettings()->footer}}</textarea>
+                                        <textarea id="mymce" class="form-control" name="footer" id="footer">{{\App\Setting::MainSettings()->footer}}</textarea>
 
                                     </div>
                                 </div>
@@ -96,6 +96,34 @@
                                         <x-error name="maxls"></x-error>
 
                                     </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="time">Reading Section Instructions: </label>
+                                        <textarea id="readinginst" class="form-control" name="reading_inst" id="footer">{{\App\Models\Section::Reading()->instructions}}</textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="time">Listening Section Instructions: </label>
+                                        <textarea id="listeninginst" class="form-control" name="listening_inst" id="footer">{{\App\Models\Section::Listening()->instructions}}</textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="time">LS Section Instructions: </label>
+                                        <textarea id="lsinst" class="form-control" name="ls_inst" id="footer">{{\App\Models\Section::LS()->instructions}}</textarea>
+
+                                    </div>
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Save</button>
@@ -113,7 +141,40 @@
     <script>
         tinymce.init({
             selector: "#mymce",
-            height: 400,
+            height: 3,
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+            ],
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: "#readinginst",
+            height: 3,
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+            ],
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: "#listeninginst",
+            height: 3,
+            plugins: [
+                "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                "save table contextmenu directionality emoticons template paste textcolor"
+            ],
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: "#lsinst",
+            height: 3,
             plugins: [
                 "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",

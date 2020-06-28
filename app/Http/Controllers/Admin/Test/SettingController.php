@@ -79,6 +79,9 @@ class SettingController extends Controller
             'maxreading' => 'required|numeric',
             'maxlistening' => 'required|numeric',
             'maxls' => 'required|numeric',
+            'reading_inst' => 'required',
+            'listening_inst' => 'required',
+            'ls_inst' => 'required',
         ]);
         if ($request->hasFile('logo_temp'))
             $request['logo'] = $this->storeFiles('logo', 'logo_temp');
@@ -90,16 +93,19 @@ class SettingController extends Controller
         Section::Reading()->update([
             'degree' => $request['reading'],
             'max' => $request['maxreading'],
+            'instructions' => $request['reading_inst'],
         ]);
 
         Section::Listening()->update([
             'degree' => $request['listening'],
             'max' => $request['maxlistening'],
+            'instructions' => $request['listening_inst'],
         ]);
 
         Section::LS()->update([
             'degree' => $request['ls'],
             'max' => $request['maxls'],
+            'instructions' => $request['ls_inst'],
         ]);
         toast('Question added successfully', 'success');
         return redirect()->back();

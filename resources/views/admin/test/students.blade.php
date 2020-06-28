@@ -12,10 +12,11 @@
                                 <th>#</th>
                                 <th>Student name</th>
                                 <th>Question ID</th>
+                                <th>Date</th>
+                                <th>Overall</th>
                                 <th>Reading</th>
                                 <th>Listening</th>
                                 <th>Language System</th>
-                                <th>Overall</th>
                             </tr>
                             </thead>
                             @foreach(\App\Test::all()->sortByDesc('created_at')  as $index=> $item)
@@ -23,10 +24,11 @@
                                     <th>{{$index + 1}}</th>
                                     <th>{{$item['student_name']}}</th>
                                     <th>{{$item['student_id']}}</th>
+                                    <th>{{$item['created_at']}}</th>
+                                    <th>{{$item['ls'] + $item['reading'] + $item['listening']}}</th>
                                     <th>{{$item['reading']}}</th>
                                     <th>{{$item['listening']}}</th>
                                     <th>{{$item['ls']}}</th>
-                                    <th>{{$item['ls'] + $item['reading'] + $item['listening']}}</th>
                                 </tr>
                             @endforeach
                         </table>
@@ -37,5 +39,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="sectionGroups"></x-datatable>
+    <x-datatable id="sectionGroups" printHead="Students"></x-datatable>
 @endsection
