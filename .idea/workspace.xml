@@ -11,10 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="01b1ea63-2493-4b54-826b-526adcd39575" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/groups/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/groups/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/test/students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/test/students.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/datatable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/datatable.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Test.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +209,7 @@
       <workItem from="1593182582826" duration="13010000" />
       <workItem from="1593253970826" duration="4000" />
       <workItem from="1593333166379" duration="4694000" />
-      <workItem from="1593350777609" duration="885000" />
+      <workItem from="1593350777609" duration="1549000" />
     </task>
     <servers />
   </component>
@@ -265,10 +262,10 @@
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593200915681" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1593083279331" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1593335189218">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1593352719083">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593335189218" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@0.0.1920.1050" timestamp="1593352719083" />
     <state x="2335" y="215" width="672" height="642" key="search.everywhere.popup/0.0.1920.1050/1920.0.1280.994@1920.0.1280.994" timestamp="1592576706558" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1592696319257" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1593084351892" />

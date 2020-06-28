@@ -36,7 +36,7 @@
                 <div class="col-6 no-print pt-5" v-if="sectionsVisibility[2]" v-html="readingInst">
 
                 </div>
-                <div class="col-6 no-print pt-5" v-if="sectionsVisibility[3]" v-html="lsInst">
+                <div class="col-6 no-print pt-5" v-if="sectionsVisibility[3]" v-html="LsInst">
 
                 </div>
             </div>
