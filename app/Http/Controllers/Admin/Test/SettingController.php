@@ -107,7 +107,7 @@ class SettingController extends Controller
             'max' => $request['maxls'],
             'instructions' => $request['ls_inst'],
         ]);
-        toast('Question added successfully', 'success');
+        toast('Saved successfully', 'success');
         return redirect()->back();
 
     }

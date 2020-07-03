@@ -68,7 +68,7 @@
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-center">
-                                                <canvas id="barChart" style="min-height: 250px; height: 300px; max-height: 300px; max-width: 400px;"></canvas>
+                                                <canvas id="barChart" style="height: 300px; max-height: 300px; max-width: 400px;"></canvas>
                                             </div>
                                             <!-- /.card-body -->
                                         </div>

@@ -5,7 +5,7 @@
                 <div class="col-6 no-print">
                     <div class=" no-print">
                         <div class="card-body no-print">
-                            <countdown ref="countdown" :time="time*60*1000" :auto-start="false" @end="showResult()" class="no-print">
+                            <countdown ref="countdown" :time="time*60*1000" :auto-start="false" @end="timerCountDownEnd()" class="no-print">
                                 <div class="d-flex justify-content-center align-items-center" slot-scope="props">
                                     <div class="progress mb-3 circle">
                                         <div class="progress-bar bg-success" role="progressbar" :aria-valuenow="props.hours" aria-valuemin="0" aria-valuemax="100" :style="{width: (props.hours * 100)/Math.floor(time / 60) + '%'}">
@@ -243,10 +243,7 @@
                                             </div>
                                             <div class="table-responsive" style="margin: 0 auto; width: 450px;">
                                                 <table class="table table-hover">
-                                                    <tr>
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
+
                                                     <tr>
                                                         <td>Listening</td>
                                                         <td>{{listeningResult}}%</td>
@@ -491,7 +488,7 @@
             },
 
             showResult() {
-                this.$refs.countdown.end();
+                this.$refs.countdown.abort();
                 this.$set(this.sectionsVisibility, 4, true)
                 this.$set(this.sectionsVisibility, 3, false)
                 this.$set(this.sectionsVisibility, 2, false)
@@ -514,7 +511,7 @@
                 })
             },
             timerCountDownEnd() {
-                console.log('ended');
+                this.showResult();
             },
 
             print() {
