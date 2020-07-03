@@ -36,6 +36,7 @@ Route::prefix('admin')->group(function () {
                 Route::get('test', 'TestController@index')->name('test.index');
                 Route::post('test-store', 'TestController@store')->name('test.store');
                 Route::get('test-students', 'TestController@students')->name('test.students');
+                Route::get('get-student-certificate/{test}', 'TestController@getCertificate')->name('get.student.certificate');
             });
         });
         Route::get('home', 'HomeController@index')->name('home');

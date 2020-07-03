@@ -61,15 +61,33 @@ class TestController extends Controller
             'listening' => 'required',
             'ls' => 'required',
             'student_name' => 'required',
-            'student_id' => 'required',
         ]);
         Test::create($request->all());
-        return 'Done';
+        return 'success';
     }
 
     public function students()
     {
         return view('admin.test.students');
+    }
+
+    public function getCertificate(Request $request, Test $test)
+    {
+        $overallResult = $test->reading + $test->listening + $test->ls;
+        if ($overallResult >= 0 && $overallResult <= 40) {
+            $test['level'] = 'One';
+        } else if ($overallResult > 40 && $overallResult <= 60) {
+            $test['level'] = 'Two';
+        } else if ($overallResult > 60 && $overallResult <= 70) {
+            $test['level'] = 'Three';
+        } else if ($overallResult > 70 && $overallResult <= 80) {
+            $test['level'] = 'Four';
+        } else if ($overallResult > 80 && $overallResult <= 90) {
+            $test['level'] = 'Five';
+        } else if ($overallResult > 90 && $overallResult <= 100) {
+            $test['level'] = 'Advanced';
+        }
+        return view('admin.certificates.template', compact('test'));
     }
 
 }

@@ -17,18 +17,22 @@
                                 <th>Reading</th>
                                 <th>Listening</th>
                                 <th>Language System</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             @foreach(\App\Test::all()->sortByDesc('created_at')  as $index=> $item)
                                 <tr>
-                                    <th>{{$index + 1}}</th>
-                                    <th>{{$item['student_name']}}</th>
-                                    <th>{{$item['student_id']}}</th>
-                                    <th>{{$item['created_at']}}</th>
-                                    <th>{{$item['ls'] + $item['reading'] + $item['listening']}}</th>
-                                    <th>{{$item['reading']}}</th>
-                                    <th>{{$item['listening']}}</th>
-                                    <th>{{$item['ls']}}</th>
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{$item['student_name']}}</td>
+                                    <td>{{$item['student_id']}}</td>
+                                    <td>{{$item['created_at']}}</td>
+                                    <td>{{$item['ls'] + $item['reading'] + $item['listening']}}</td>
+                                    <td>{{$item['reading']}}</td>
+                                    <td>{{$item['listening']}}</td>
+                                    <td>{{$item['ls']}}</td>
+                                    <td>
+                                        <a class="btn btn-success" target="_blank" href="{{route('admin.get.student.certificate', $item)}}"><i class="fa fa-print"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
